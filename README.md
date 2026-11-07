@@ -3,14 +3,22 @@
 <h1>iTunes Store X</h1>
 </div>
 
-This tweak aims to fix the connection issues originating from Apple restricting access to old storefront domains, it will also restore the layout to its former self. (Does not currently allow for downloading apps).
+**Tested and verified: App Store sign-in on a jailbroken iPad 4 running iOS 8.4.1**, using iTunesStoreX `3.1+ios8.1`. Successful login was confirmed on 7 November 2026 after restarting `itunesstored` so it loaded the tweak. App downloads have not been verified.
 
-## Usage
-Download and install in cydia through my repo:
+This is an unofficial iOS 8 fork of [ObscureMosquito/iTunesStoreX](https://github.com/ObscureMosquito/iTunesStoreX). Credit for the original tweak belongs to Requis, Bag.xml, and the upstream contributors. The verification applies to this fork's build and the tested device configuration; other devices and iOS versions remain untested.
 
-http://cydia.skyglow.es
+## Relationship to GSAPort
 
-## Local iPad 4 / iOS 8 experiment
+The test device also had [the iOS 8 GSAPort fork](https://github.com/kevinchan-dev/GSAPort) `2.4.2+ios8.4` installed:
+
+| Tweak | Verified result on iPad 4 / iOS 8.4.1 |
+| --- | --- |
+| GSAPort | iCloud sign-in worked before iTunesStoreX was installed. |
+| iTunesStoreX | App Store sign-in worked with GSAPort still installed. |
+
+GSAPort handles iCloud authentication, while this fork repairs Store URLs and the App Store authentication endpoint. GSAPort alone did not restore App Store login on the test device. App Store login has not been tested with GSAPort removed, so it is **unknown whether iTunesStoreX needs GSAPort for that login**. Keep both installed to reproduce the verified setup. The device also had `tlsfix` and CheckmateStore installed; their necessity has not been isolated.
+
+## iOS 8 build and installation
 
 This checkout builds `src/packages/com.skyglow.itunesstorex_3.1+ios8.1_iphoneos-arm.deb`
 for armv7 devices on iOS 8.x. App Store login was confirmed on an iPad 4 running
@@ -81,3 +89,6 @@ not tested independently. Downloads remain unconfirmed.
 error domains/codes, known markers, and hostnames without full request URLs or
 response bodies. It helped identify the daemon that had not loaded the tweak.
 
+## Original project
+
+The upstream project aims to repair legacy Store connections and storefront layout. Its original Cydia repository is <http://cydia.skyglow.es>; packages from that repository are separate from this fork's verified iOS 8 build.
