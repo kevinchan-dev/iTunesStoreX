@@ -1,6 +1,6 @@
 Package: com.skyglow.itunesstorex
 Name: iTunesStoreX
-Version: 3.1+ios8.1
+Version: 3.1+ios8.4.1-1
 Architecture: iphoneos-arm
 Description: Experimental iOS 8 Store connection and authentication URL compatibility. Login and downloads require device testing.
 Maintainer: Requis, Bag.xml

@@ -3,7 +3,7 @@
 <h1>iTunes Store X</h1>
 </div>
 
-**Tested and verified: App Store sign-in on a jailbroken iPad 4 running iOS 8.4.1**, using iTunesStoreX `3.1+ios8.1`. Successful login was confirmed on 7 November 2026 after restarting `itunesstored` so it loaded the tweak. App downloads have not been verified.
+**Tested and verified: App Store sign-in on a jailbroken iPad 4 running iOS 8.4.1**, using the tweak binary now distributed as iTunesStoreX `3.1+ios8.4.1-1`. Successful login was confirmed on 7 November 2026 after restarting `itunesstored` so it loaded the tweak. App downloads have not been verified.
 
 This is an unofficial iOS 8 fork of [ObscureMosquito/iTunesStoreX](https://github.com/ObscureMosquito/iTunesStoreX). Credit for the original tweak belongs to Requis, Bag.xml, and the upstream contributors. The verification applies to this fork's build and the tested device configuration; other devices and iOS versions remain untested.
 
@@ -20,7 +20,9 @@ GSAPort handles iCloud authentication, while this fork repairs Store URLs and th
 
 ## iOS 8 build and installation
 
-This checkout builds `src/packages/com.skyglow.itunesstorex_3.1+ios8.1_iphoneos-arm.deb`
+Download the `.deb` and `SHA256SUMS` from the [iOS 8.4.1 pre-release](https://github.com/kevinchan-dev/iTunesStoreX/releases/tag/v3.1-ios8.4.1-1). The package version `3.1+ios8.4.1-1` means upstream 3.1, verified iOS 8.4.1, package revision 1. The naming correction changes package metadata only; the tweak binary is unchanged.
+
+This checkout builds `src/packages/com.skyglow.itunesstorex_3.1+ios8.4.1-1_iphoneos-arm.deb`
 for armv7 devices on iOS 8.x. App Store login was confirmed on an iPad 4 running
 iOS 8.4.1 with this build and GSAPort `2.4.2+ios8.4` installed. Downloads remain
 untested, and other devices and iOS versions have not been validated. The
@@ -61,7 +63,7 @@ module cache when running inside a sandbox.
 To install, copy the package to the iPad and run as root:
 
 ```sh
-dpkg -i com.skyglow.itunesstorex_3.1+ios8.1_iphoneos-arm.deb
+dpkg -i com.skyglow.itunesstorex_3.1+ios8.4.1-1_iphoneos-arm.deb
 ```
 
 Reboot after installation so both the Store apps and `itunesstored` load the
@@ -78,7 +80,8 @@ dylib in its own process. This does not test a real account login.
 
 Validation on the connected iPad 4 / iOS 8.4.1: URL and protocol checks passed,
 the signed armv7 dylib loaded, and all three method implementations changed
-when the tweak initialized. Version `3.1+ios8.1` was installed over SSH. The
+when the tweak initialized. The tested tweak was installed over SSH; package
+`3.1+ios8.4.1-1` contains that same binary with corrected version metadata. The
 initial login attempts failed while the old `itunesstored` process remained
 running. After restarting that daemon and confirming the tweak's load event
 in its logs, the user confirmed successful App Store login on 7 November 2026.

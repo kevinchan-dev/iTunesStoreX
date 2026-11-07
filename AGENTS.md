@@ -6,7 +6,8 @@ This is the unofficial iOS 8 fork of iTunesStoreX. Read `README.md` before
 changing behavior or documenting compatibility.
 
 - App Store sign-in was verified on a jailbroken iPad 4 running iOS 8.4.1
-  with package `3.1+ios8.1` on 7 November 2026.
+  on 7 November 2026. The tested tweak binary is now distributed in package
+  `3.1+ios8.4.1-1`; the naming correction changed only package metadata.
 - The tested device also had GSAPort `2.4.2+ios8.4`, tlsfix, and CheckmateStore.
   Their necessity for App Store login has not been isolated.
 - GSAPort restored iCloud login before iTunesStoreX was installed. The projects
@@ -102,14 +103,16 @@ old code signature.
 `origin` is `kevinchan-dev/iTunesStoreX`; `upstream` is
 `ObscureMosquito/iTunesStoreX`. Preserve that distinction.
 
-Commit only changes belonging to the requested task. The user wants to review
-this file before publication: keep its commit local until they authorize a
-push. Do not infer permission from earlier pushes or release publication.
+Commit only changes belonging to the requested task. Honor any request to keep
+commits local for review. Push or publish only when authorized by the current
+task; do not infer permission from unrelated earlier pushes or releases.
 
 For future releases, obtain publication authorization, use a pre-release while
 compatibility remains limited, and attach the built `.deb` plus `SHA256SUMS`.
 Verify the source commit, package version, uploaded asset digest, and release
 status. State the exact tested configuration and remaining uncertainties.
 Never replace a published artifact with a different binary under the same
-version; use a new version for changed packages. The first iOS 8 pre-release
-is `v3.1-ios8.1` with package version `3.1+ios8.1`.
+version; use a new version for changed packages. The corrected iOS 8 pre-release
+is `v3.1-ios8.4.1-1` with package version `3.1+ios8.4.1-1`. Use the full
+verified OS version in release/package names, followed by a package revision;
+do not abbreviate it to a name that looks like a different iOS version.
