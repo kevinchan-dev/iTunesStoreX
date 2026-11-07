@@ -11,10 +11,17 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 @implementation CustomURLProtocol
 
 + (BOOL)canInitWithRequest:(NSURLRequest *)request {
+    if ([NSURLProtocol propertyForKey:URLProtocolHandledKey inRequest:request]) {
+        return NO;
+    }
+    NSString *host = request.URL.host.lowercaseString;
+    if (![host isEqualToString:@"itunes.apple.com"] && ![host hasSuffix:@".itunes.apple.com"]) {
+        return NO;
+    }
     NSString *requestURLString = request.URL.absoluteString;
     
     // Check if the request URL contains the exception string
-    if ([requestURLString rangeOfString:@"https://search.itunes.apple.com"].location != NSNotFound) {
+    if ([host isEqualToString:@"search.itunes.apple.com"]) {
         return NO;
     }
     

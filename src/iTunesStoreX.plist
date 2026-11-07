@@ -9,6 +9,10 @@
     <string>com.apple.podcasts</string>
     <string>com.apple.iBooks</string>
    </array>
+   <key>Executables</key>
+   <array>
+    <string>itunesstored</string>
+   </array>
   </dict>
  </dict>
 </plist>

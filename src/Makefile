@@ -1,8 +1,8 @@
-TARGET := iphone:clang:latest:7.0
-INSTALL_TARGET_PROCESSES = SpringBoard
+TARGET := iphone:clang:9.3:8.0
+INSTALL_TARGET_PROCESSES = AppStore MobileStore itunesstored
 BUNDLE_NAME = com.skyglow.itunesstorex
 
-archs= armv7
+ARCHS = armv7
 
 include $(THEOS)/makefiles/common.mk
 
